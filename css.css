@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    height: 100vh; 
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    height: 100%; 
+    padding: 100px;
+    
+    gap: 100px;
+}
+
+#map1, #map2, #map3, #map4 {
+    border: 2px solid black; 
+    position: relative;
+    box-sizing: border-box; 
+    
+    
+}
+
+#getLocation{
+    position: absolute; /* Umożliwia precyzyjne pozycjonowanie przycisków */
+    bottom: 30px; /* Dystans od dolnej krawędzi mapy */
+    left: 20px; /* Dystans od lewej krawędzi mapy */
+    padding: 10px 15px; /* Wewnętrzny margines */
+    background-color: rgba(255, 255, 255, 0.8); /* Lekko przezroczyste tło */
+    border: 1px solid #333; /* Ramka wokół przycisku */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Wskaźnik kursora */
+    z-index: 10000; /* Zapewnia, że przyciski są na wierzchu */
+}
+
+#saveButton {
+    position: absolute; /* Umożliwia precyzyjne pozycjonowanie przycisków */
+    bottom: 70px; /* Dystans od dolnej krawędzi mapy */
+    left: 20px; /* Dystans od lewej krawędzi mapy */
+    padding: 10px 15px; /* Wewnętrzny margines */
+    background-color: rgba(255, 255, 255, 0.8); /* Lekko przezroczyste tło */
+    border: 1px solid #333; /* Ramka wokół przycisku */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    cursor: pointer; /* Wskaźnik kursora */
+    z-index: 10000; /* Zapewnia, że przyciski są na wierzchu */
+}
