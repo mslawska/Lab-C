@@ -2,6 +2,7 @@
 let map1 = L.map('map1').setView([53.430127, 14.564802], 18);
 L.tileLayer.provider('Esri.WorldImagery').addTo(map1);
 
+
 document.getElementById("saveButton").addEventListener("click", function() {
     leafletImage(map1, function (err, canvas) {
         if (err) {
@@ -24,7 +25,6 @@ document.getElementById("saveButton").addEventListener("click", function() {
     });
 });
 
-
 document.getElementById("getLocation").addEventListener("click", function() {
     if (!navigator.geolocation) {
         console.log("Geolokalizacja nie jest wspierana.");
@@ -40,7 +40,7 @@ document.getElementById("getLocation").addEventListener("click", function() {
     });
 });
 
-// Shuffle puzzle pieces in the container
+
 function shufflePuzzle() {
     const container = document.getElementById("map3");
     const items = Array.from(container.children);
@@ -52,7 +52,7 @@ function shufflePuzzle() {
     items.forEach(item => container.appendChild(item));
 }
 
-// Create a grid on `map4` for the drop area
+
 function createPuzzleGrid(rows, cols) {
     const grid = document.getElementById("map4");
     grid.innerHTML = "";
@@ -62,14 +62,12 @@ function createPuzzleGrid(rows, cols) {
     const totalCells = rows * cols;
     for (let i = 0; i < totalCells; i++) {
         const cell = document.createElement("div");
-        cell.classList.add("item");
+        cell.classList.add("cell");
         grid.appendChild(cell);
     }
 }
 
-createPuzzleGrid(4,4);
 
-// Split the image into 16 pieces and add drag-and-drop functionality
 function splitImageIntoPieces(image) {
     const numRows = 4;
     const numCols = 4;
@@ -99,12 +97,12 @@ function splitImageIntoPieces(image) {
         }
     }
 
-    
+    createPuzzleGrid(numRows, numCols);
     shufflePuzzle();
     enableDragAndDrop();
 }
 
-// Enable drag-and-drop functionality for puzzle pieces
+
 function enableDragAndDrop() {
     const items = document.querySelectorAll('.item');
     items.forEach(item => {
@@ -149,9 +147,13 @@ function checkIfPuzzleCompleted() {
     if (isComplete) {
         showNotification("Gratulacje! Puzzle zostały poprawnie ułożone.");
     }
+
+    if (isComplete) {
+        alert("Gratulacje! Puzzle zostały poprawnie ułożone.");
+    }
 }
 
-// Show notification on completion
+
 function showNotification(message) {
     if (!("Notification" in window)) {
         alert("Twoja przeglądarka nie obsługuje powiadomień.");
